@@ -1,0 +1,722 @@
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Triforce";
+  src: url(./assets/zelda/font/Triforce.ttf);
+}
+/* propriété de la barre de navigation ------------------------------------------------------*/
+#navbar {
+  background: linear-gradient(
+    to right,
+    rgb(1, 195, 21),
+    rgba(64, 248, 3, 0.977)
+  );
+  height: 64px;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 65px;
+}
+#navbar .logo img {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  transition: height 0.5s ease;
+}
+#navbar ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 80%;
+  transition: all 0.5s ease;
+}
+#navbar .dropdown a,
+#navbar .navtext a {
+  font-family: "Triforce", sans-serif;
+  font-size: 24px;
+  letter-spacing: 5px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
+  padding: 14px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: font-size 0.5s ease;
+}
+
+/* Styles spécifiques lors du survol de la souris */
+#navbar .dropdown a:hover,
+#navbar .navtext a:hover {
+  background-color: rgba(0, 0, 0, 0.973);
+  color: rgb(254, 254, 255);
+  font-family: "BabasNeue", sans-serif;
+}
+
+/* barre de défilement pour choisir le theme */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(64, 248, 3, 0.977);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(5, 247, 98, 0.411);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: rgb(7, 0, 0);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+@media (max-width: 800px) {
+  #navbar {
+    height: 55px;
+  }
+  #navbar .logo img {
+    width: 40px;
+    height: 40px;
+    top: 4px;
+    left: 4px;
+  }
+  #navbar .navtext a {
+    font-size: 16px;
+  }
+  .profil-image {
+    left: calc(50% - 50px);
+    top: calc(100% - 100px);
+  }
+}
+
+@media (max-width: 1000px) {
+  #navbar {
+    height: 59px;
+  }
+  #navbar .logo img {
+    width: 45px;
+    height: 45px;
+    top: 5px;
+    left: 5px;
+  }
+  #navbar .navtext a {
+    font-size: 19px;
+  }
+  .profil-image {
+    left: calc(50% - 50px);
+    top: calc(100% - 100px);
+  }
+}
+
+/* caractérisitique page Acceuil ------------------------------------------------------ */
+body.index {
+  background-image: url("./assets/zelda/img/forest.jpeg");
+  background-repeat: none;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.profil-image {
+  background-image: url(./assets/CyberPunk/img/profil.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 500px;
+  top: 100px;
+  border: 4px solid #fdfcfc;
+  background-color: rgba(3, 54, 25, 0.822);
+  border-radius: 50px;
+}
+.index .Acceuil {
+  background-color: rgba(3, 54, 25, 0.822);
+  border: 5px solid rgb(245, 247, 243);
+  border-radius: 15px;
+  box-shadow: 15px 16px 0 rgba(255, 254, 255, 0.445);
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 100px;
+  padding-bottom: 200px;
+  padding-top: 20px;
+  width: 600px;
+  height: 700px;
+  position: relative;
+}
+.index .title,
+.index h2,
+.index h3 {
+  font-family: "Triforce", Courier, monospace;
+  letter-spacing: 5px;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}
+.index h3 {
+  margin-bottom: 100px;
+  border-bottom: 5px solid #050000;
+}
+.index p {
+  font-family: "Triforce", Courier, monospace;
+  letter-spacing: 5px;
+  color: white;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 50px;
+  margin-top: 20px;
+}
+.signature {
+  font-family: "Playwrite", sans-serif;
+  font-size: 25px;
+  text-decoration: underline;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* caractérisitique page Diplome --------------------------------------------------------- */
+body.Qui {
+  background-image: url(./assets/zelda/img/forest.jpg);
+  background-repeat: no-repeat;
+  height: 90vh;
+  width: 100%;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  font-family: "Triforce";
+  letter-spacing: 3px;
+  color: rgb(249, 251, 253);
+}
+
+.container_qui {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 50px;
+  overflow: hidden;
+  padding: 50px;
+  background-color: rgba(3, 54, 25, 0.822);
+  border: 5px solid rgb(245, 247, 243);
+  border-radius: 15px;
+}
+
+h1.Qui {
+  text-align: center;
+  color: rgb(249, 251, 253);
+}
+
+p.Qui {
+  margin: 20px 30px;
+  justify-content: space-around;
+  font-size: 15px;
+  color: rgb(249, 251, 253);
+}
+
+.profile {
+  flex: 2;
+}
+.sidebar li h2 {
+  color: rgb(249, 251, 253);
+  font-family: "Triforce", Courier, monospace;
+}
+.sidebar {
+  color: rgb(249, 251, 253);
+  font-family: "Triforce", Courier, monospace;
+  flex: 1;
+  padding-left: 20px;
+  border-left: 2px solid rgb(249, 251, 253);
+}
+.sidebar {
+  flex: 1;
+  padding-left: 20px;
+  border-left: 2px solid rgb(249, 251, 253);
+}
+
+.sidebar img {
+  display: block;
+  margin: 0 auto 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+/* caractérisitique des body de page xp_____________________________________________________________ */
+:root {
+  --primary-color: rgba(3, 54, 25, 0.822);
+  --light-primary-color: rgba(3, 54, 25, 0.822);
+  --text-color: #ffffff;
+  --font-family: "Triforce", Courier, monospace;
+  --font-size: 20px;
+  --letter-spacing: 2px;
+  --color: white;
+  --background-color :rgba(3, 54, 25, 0.822);
+}
+
+body.xp{
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing);
+  color: var(--color);
+}
+
+body.xp {
+  background-image: url(./assets/zelda/img/hyrule.jpg);
+}
+section.xp {
+  padding: 100px 0;
+}
+
+.timeline {
+  position: relative;
+  padding: 50px 0;
+  min-height: 500px;
+}
+
+.timeline::before {
+  content: "";
+  background: var(--light-primary-color);
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-40%);
+}
+
+.timeline-item {
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  float: right;
+  padding: 40px 30px 10px 30px;
+}
+
+.timeline-item:nth-child(even) .timeline-content .date {
+  right: auto;
+  left: 0;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  top: 30px;
+  left: -15px;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #f5f5f5 transparent transparent;
+}
+
+.timeline-item::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.timeline-content {
+  position: relative;
+  width: calc(100% - 1100px);
+  margin: 0 100px;
+  padding: 10px 30px;
+  border-radius: 15px;
+  background: rgba(3, 54, 25, 0.822);
+  box-shadow: 0 20px 25px -15px rgba(255, 254, 254, 0.945);
+}
+
+.timeline-content::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  top: 30px;
+  right: -15px;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent #f5f5f5;
+}
+
+a.timeline {
+  padding: 8px 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  display: flex;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.6);
+}
+
+.timeline-card {
+  padding: 0;
+}
+
+.timeline-card p {
+  padding: 0 20px;
+}
+
+.timeline-card a {
+  margin-left: 20px;
+}
+
+.timeline-img {
+  width: 20px;
+  height: 20px;
+  background: #fcfcfc;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.timeline-logo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .timeline::before,
+  .timeline-img {
+    left: 50px;
+  }
+
+  .timeline-content {
+    max-width: 100%;
+    width: auto;
+    margin-left: 70px;
+  }
+
+  .timeline-item:nth-child(even) .timeline-content,
+  .timeline-item:nth-child(odd) .timeline-content {
+    float: none;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    width: 0;
+    height: 0;
+    top: 30px;
+    left: -15px;
+    border-width: 10px 15px 10px 0;
+    border-color: transparent #f5f5f5 transparent transparent;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .timeline::before,
+  .timeline-img {
+    left: 50px;
+  }
+
+  .timeline-content {
+    max-width: 100%;
+    width: auto;
+    margin-left: 70px;
+  }
+
+  .timeline-item:nth-child(even) .timeline-content,
+  .timeline-item:nth-child(odd) .timeline-content {
+    float: none;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    width: 0;
+    height: 0;
+    top: 30px;
+    left: -15px;
+    border-width: 10px 15px 10px 0;
+    border-color: transparent #f5f5f5 transparent transparent;
+  }
+}
+
+.js--fadeInLeft {
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+.js--fadeInRight {
+  animation: fadeInRight 1s ease-in-out;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Caractéristique de la page compétence--------------------------------------------------*/
+
+body.index2 {
+  background-image: url("/assets/zelda/img/hyrule1.jpeg");
+  background-repeat: none;
+  background-size: cover;
+  min-height: 100vh; /* 100 % de la hauteur de la fenêtre */
+  width: 100%;
+}
+.competences {
+  background-color: rgba(187, 255, 0, 0.281);
+  border-radius: 25px;
+  box-shadow: 0 0 8px #2c2121;
+  padding: 20px;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.competences main h1 {
+  text-align: center;
+  font-family: "Triforce", Courier, monospace;
+  letter-spacing: 5px;
+  color: white;
+}
+
+.box_skill {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.hskill,
+.soskill {
+  font-family: "Triforce", Courier, monospace;
+  letter-spacing: 5px;
+  flex: 1;
+  padding: 20px;
+  background-color: rgba(3, 54, 25, 0.822);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.soskill {
+  background: rgba(3, 54, 25, 0.822) url("./assets/zelda/img/zelda_skills.jpg")
+    no-repeat center bottom 15px;
+  background-size: 220px 220px;
+}
+
+.hskill h2,
+.soskill h2 {
+  font-family: "Triforce", Courier, monospace;
+  letter-spacing: 6px;
+  text-align: center;
+  color: white;
+}
+
+.box_h3 {
+  font-family: "Triforce", Courier, monospace;
+  letter-spacing: 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  box-shadow: 0 0 15px #d7fd01c4;
+  border-bottom: 2px solid #d7fd01c4;
+  background-color: white;
+  border-radius: 25px;
+  margin: 10px;
+  padding: 20px;
+  position: relative;
+}
+.box_h3 h3.hard_skill, h3.soft_skill{
+  color: black;
+}
+
+.box_h3 h3 {
+  text-align: left;
+  padding-left: 20px;
+  margin: 0;
+  position: relative;
+  flex-basis: 20%;
+}
+
+.box_h3 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-basis: 80%;
+}
+
+.box_h3 li {
+  text-align: left;
+  padding-left: 50px;
+  margin-left: 0;
+  max-width: calc(100% - 70px);
+}
+
+.hskill ul,
+.soskill ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hskill li,
+.soskill li {
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 600px) {
+  .box_skill {
+    flex-direction: column;
+  }
+
+  .box_h3 h3 {
+    font-size: 13px;
+  }
+  .box_h3 li {
+    font-size: 10px;
+  }
+  .hskill,
+  .soskill {
+    margin-bottom: 5px;
+  }
+
+  .soskill {
+    background-size: 20px 20px;
+  }
+}
+/* Caractéristique de la page formulaire--------------------------------------------------*/
+div.Formulaire {
+  border-radius: 25px;
+  box-shadow: 0 0 8px #2c2121;
+  padding: 20px;
+  width: 80%;
+  margin: 20px auto;
+  background-color: rgba(3, 54, 25, 0.822);
+  border: 5px solid rgb(245, 247, 243);
+  color: rgb(249, 251, 253);
+  font-family: "Triforce";
+  letter-spacing: 3px;
+}
+
+.title_form {
+  font-family: "Triforce";
+  letter-spacing: 3px;
+  color: rgb(249, 251, 253);
+  background-color: #31f10ad0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 8px #2c2121;
+  padding: 20px;
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  transition: font-size 0.5s ease;
+  position: relative;
+}
+.radio-group {
+  display: flex;
+  align-items: center;
+}
+
+.radio-group label {
+  margin-right: 10px;
+}
+form#survey-form {
+  display: flex;
+  flex-direction: column;
+}
+
+form#survey-form label {
+  margin-top: 10px;
+}
+
+form#survey-form input[type="text"],
+form#survey-form input[type="email"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+form#survey-form textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  width: 50vw;
+  height: 30vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form#survey-form input[type="submit"] {
+  font-family: "Triforce";
+  letter-spacing: 3px;
+  color: rgb(249, 251, 253);
+  background-color: #31f10ad0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .title_form {
+    font-size: 16px;
+  }
+}
