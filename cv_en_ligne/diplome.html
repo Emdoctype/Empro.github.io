@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" id="theme-link" />
+    <title>Emeric CV page web</title>
+    <link rel="icon" href="./assets/logo/logo_black.jpg" />
+  </head>
+  <body class="index">
+    <nav id="navbar">
+      <ul>
+        <li class="logo">
+          <img
+            id="logo_nav"
+            src="./assets/logo/logo_white.png"
+            alt="Logo du site"
+          />
+        </li>
+        <li class="navtext">
+          <a href="./index.html" aria-label="Accueil"><span>Accueil</span></a>
+        </li>
+        <li class="navtext">
+          <a href="./diplome.html" aria-label="Qui suis je ?/ Diplômes"
+            ><span>À propos de moi</span></a
+          >
+        </li>
+        <li class="navtext">
+          <a href="./xp.html" aria-label="Expériences"
+            ><span>Expériences</span></a
+          >
+        </li>
+        <li class="navtext">
+          <a href="./index2.html" aria-label="Compétences"
+            ><span>Compétences</span></a
+          >
+        </li>
+        <li class="navtext">
+          <a href="./formulaire.html" aria-label="Formulaire"
+            ><span>Formulaire</span></a
+          >
+        </li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="theme">Thème page</a>
+          <div class="dropdown-content">
+            <a href="#" id="classique">Classique</a>
+            <a href="#" id="cyber">Cyber</a>
+            <a href="#" id="zelda">Zelda</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="container_qui">
+      <div class="profile">
+        <h1 class="Qui">À propos de moi</h1>
+        <p class="Qui">
+          Je m'appelle Emeric, j'ai 33 ans et je suis passionné de hardware
+          depuis mon plus jeune âge. J'ai commencé à souder mes premiers
+          composants électroniques sur la table de la cuisine avec ma mère,
+          professeur de technologie. En parallèle, je réparais les PC des
+          voisins et amis, et cette passion pour la bidouille informatique m'a
+          amené à modifier des PC, des Steam Deck, et à installer des systèmes
+          Linux pour donner une seconde vie à des ordinateurs un peu
+          poussiéreux.
+        </p>
+        <p class="Qui">
+          Mais une autre passion a pris le dessus à cette période : la nature et
+          les mystères des plantes. J'ai choisi de diversifier mes compétences
+          en obtenant un bac technique en sciences et techniques de l'agronomie
+          et du vivant, suivi d'un BTS horticole. Mon intérêt pour
+          l'environnement et les plantes m'a conduit à transmettre cette passion
+          à mes clients en obtenant une licence en commerce des végétaux
+          d'ornement. Les plantes sont le code de notre environnement : en
+          sachant lire leur langue, nous pouvons savoir si un sol est humide,
+          sec ou acide. Elles ont leurs codes, leurs langues et leurs noms
+          latins.
+        </p>
+        <p class="Qui">
+          Mon contact humain et mon envie de me sentir utile aux autres m'ont
+          amené à partir dans la gestion du vivant et des nuisibles pour assurer
+          la protection des biens et des personnes.
+        </p>
+        <p class="Qui">
+          L'informatique a toujours été présente dans ma vie professionnelle.
+          J'ai utilisé le code pour traiter des données et élaborer des analyses
+          de tendances pour des clients agroalimentaires et pharmaceutiques. En
+          tant que responsable, j'ai mis en place des outils pour améliorer la
+          productivité et, récemment, j'ai créé ce site web.
+        </p>
+
+        <p class="Qui">
+          Pour moi,l'informatique est bien plus qu'un simple outil : c'est un
+          lien entre les personnes, un moyen d'augmenter la productivité, un
+          site marchand permettant à une PME de grandir, un blog pour partager
+          sa passion, ou encore un Discord pour rencontrer et échanger avec des
+          personnes du monde entier.
+        </p>
+        <p class="Qui">
+          Le code est un art que je souhaite continuer à apprendre et maîtriser
+          pour écrire moi aussi mon histoire future. Je suis déterminé, curieux
+          et toujours prêt à relever de nouveaux défis pour apporter des
+          solutions innovantes et efficaces.
+        </p>
+      </div>
+      <div class="sidebar">
+        <img src="./assets/logo/certi.jpg" alt="Logo de diplôme" />
+        <ul>
+          <li><h2>Diplômes</h2></li>
+          <li>Bac STAV</li>
+          <li>BTS Horticole</li>
+          <li>Licence Commerce Distrimanageur</li>
+          <li><h2>Certification</h2></li>
+          <li>Certiphyto</li>
+          <li>Certibiocide</li>
+          <li>Atex</li>
+          <li>HO/BO électrique</li>
+          <li><h2>Passion</h2></li>
+          <li>Dessin</li>
+          <li>Hardware</li>
+          <li>Lecture</li>
+          <li>Bassin d'ornement et jardin</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      const classique = document.getElementById("classique");
+      const cyber = document.getElementById("cyber");
+      const zelda = document.getElementById("zelda");
+      const linkElement = document.getElementById("theme-link");
+
+      // Appliquer le thème stocké lors du chargement de la page
+      window.onload = () => {
+        const theme = localStorage.getItem("theme");
+        if (theme) {
+          linkElement.setAttribute("href", theme);
+        }
+      };
+
+      classique.addEventListener("click", () => {
+        linkElement.setAttribute("href", "styles.css");
+        localStorage.setItem("theme", "styles.css"); // Stocker le thème choisi
+      });
+
+      cyber.addEventListener("click", () => {
+        linkElement.setAttribute("href", "cyb.css");
+        localStorage.setItem("theme", "cyb.css"); // Stocker le thème choisi
+      });
+
+      zelda.addEventListener("click", () => {
+        linkElement.setAttribute("href", "zelda.css");
+        localStorage.setItem("theme", "zelda.css"); // Stocker le thème choisi
+      });
+    </script>
+  </body>
+</html>
