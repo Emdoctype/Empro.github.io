@@ -103,7 +103,6 @@
       const zelda = document.getElementById("zelda");
       const linkElement = document.getElementById("theme-link");
 
-      // Appliquer le thème stocké lors du chargement de la page
       window.onload = () => {
         const theme = localStorage.getItem("theme");
         if (theme) {
@@ -124,6 +123,31 @@
         linkElement.setAttribute("href", "zelda.css");
         localStorage.setItem("theme", "zelda.css"); // Stocker le thème choisi
       });
+      document
+        .getElementById("survey-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var textarea1 = document.getElementById("textarea1").value;
+
+          name = encodeURIComponent(name);
+          email = encodeURIComponent(email);
+          textarea1 = encodeURIComponent(textarea1);
+        });
+           // Ajoutez le gestionnaire d'événements 'submit' pour la validation
+      document.getElementById('survey-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var email = document.getElementById('email').value;
+
+        // Utilisez une expression régulière pour valider l'adresse e-mail
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+          alert('Veuillez entrer une adresse e-mail valide.');
+          return;
+        }
     </script>
   </body>
 </html>
