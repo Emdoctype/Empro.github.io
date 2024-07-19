@@ -8,48 +8,74 @@
     <link rel="icon" href="./assets/logo/logo_black.jpg" />
   </head>
   <body class="index">
-    <nav id="navbar">
-      <ul>
-        <li class="logo">
-          <img
-            id="logo_nav"
-            src="./assets/logo/logo_white.png"
-            alt="Logo du site"
+    <header class="header_index">
+      <div class="header_logo">
+        <img
+          id="header_logo"
+          src="./assets/logo/logo_white.png"
+          alt="Logo du site"
+        />
+      </div>
+      <div class="overlay_menu_mobile" onclick="closeMenuMobile()"></div>
+      <nav class="header_nav">
+        <div class="header_nav_close" onclick="closeMenuMobile()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+        </div>
+        <ul class="header_nav_menu">
+          <li class="header_nav_menu_link">
+            <a href="./index.html"><span>Accueil</span></a>
+          </li>
+          <li class="header_nav_menu_link">
+            <a href="./diplome.html"><span>À propos de moi</span></a>
+          </li>
+          <li class="header_nav_menu_link">
+            <a href="./xp.html"><span>Expériences</span></a>
+          </li>
+          <li class="header_nav_menu_link">
+            <a href="./index2.html"><span>Compétences</span></a>
+          </li>
+          <li class="header_nav_menu_link">
+            <a href="./formulaire.html"><span>Formulaire</span></a>
+          </li>
+          <li class="header_nav_menu_link_dropdown">
+            <a href="#">Thème page</a>
+            <div class="dropdown-content">
+              <a href="#" id="classique">Classique</a>
+              <a href="#" id="zelda">Zelda</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="header_burger" onclick="openMenuMobile()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
           />
-        </li>
-        <li class="navtext">
-          <a href="./index.html" aria-label="Accueil"><span>Accueil</span></a>
-        </li>
-        <li class="navtext">
-          <a href="./diplome.html" aria-label="Qui suis je ?/ Diplômes"
-            ><span>À propos de moi</span></a
-          >
-        </li>
-        <li class="navtext">
-          <a href="./xp.html" aria-label="Expériences"
-            ><span>Expériences</span></a
-          >
-        </li>
-        <li class="navtext">
-          <a href="./index2.html" aria-label="Compétences"
-            ><span>Compétences</span></a
-          >
-        </li>
-        <li class="navtext">
-          <a href="./formulaire.html" aria-label="Formulaire"
-            ><span>Formulaire</span></a
-          >
-        </li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="theme">Thème page</a>
-          <div class="dropdown-content">
-            <a href="#" id="classique">Classique</a>
-            <a href="#" id="cyber">Cyber</a>
-            <a href="#" id="zelda">Zelda</a>
-          </div>
-        </li>
-      </ul>
-    </nav>
+        </svg>
+      </div>
+    </header>
 
     <div class="competences">
       <main>
@@ -118,32 +144,41 @@
     </div>
 
     <script>
+      function openMenuMobile() {
+        document.querySelector(".header_nav").classList.add("open");
+        document.querySelector(".overlay_menu_mobile").classList.add("open");
+      }
+      function closeMenuMobile() {
+        document.querySelector(".header_nav").classList.remove("open");
+        document.querySelector(".overlay_menu_mobile").classList.remove("open");
+      }
       const classique = document.getElementById("classique");
-      const cyber = document.getElementById("cyber");
       const zelda = document.getElementById("zelda");
       const linkElement = document.getElementById("theme-link");
 
       // Appliquer le thème stocké lors du chargement de la page
-      window.onload = () => {
+      window.addEventListener("DOMContentLoaded", (event) => {
+        const classique = document.getElementById("classique");
+        const zelda = document.getElementById("zelda");
+        const linkElement = document.getElementById("theme-link");
+
+        // Appliquer le thème stocké lors du chargement de la page
         const theme = localStorage.getItem("theme");
         if (theme) {
           linkElement.setAttribute("href", theme);
         }
-      };
 
-      classique.addEventListener("click", () => {
-        linkElement.setAttribute("href", "styles.css");
-        localStorage.setItem("theme", "styles.css");
-      });
+        classique.addEventListener("click", (event) => {
+          event.preventDefault();
+          linkElement.setAttribute("href", "styles.css");
+          localStorage.setItem("theme", "styles.css"); // Stocker le thème choisi
+        });
 
-      cyber.addEventListener("click", () => {
-        linkElement.setAttribute("href", "cyb.css");
-        localStorage.setItem("theme", "cyb.css");
-      });
-
-      zelda.addEventListener("click", () => {
-        linkElement.setAttribute("href", "zelda.css");
-        localStorage.setItem("theme", "zelda.css");
+        zelda.addEventListener("click", (event) => {
+          event.preventDefault();
+          linkElement.setAttribute("href", "zelda.css");
+          localStorage.setItem("theme", "zelda.css"); // Stocker le thème choisi
+        });
       });
     </script>
   </body>
