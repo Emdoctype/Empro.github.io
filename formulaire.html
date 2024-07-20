@@ -172,12 +172,20 @@
           email = encodeURIComponent(email);
           textarea1 = encodeURIComponent(textarea1);
 
+          document.getElementById("survey-form").addEventListener("submit", function (event) {
+          event.preventDefault();
+
+           var email = document.getElementById("email").value;
+
           // Utilisez une expression régulière pour valider l'adresse e-mail
-          var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+           var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
           if (!emailRegex.test(email)) {
-            alert("Veuillez entrer une adresse e-mail valide.");
-            return;
-          }
+           alert("Veuillez entrer une adresse e-mail valide.");
+          return;
+           }
+
+          // Encodez l'adresse e-mail après la validation
+          email = encodeURIComponent(email);
         });
     </script>
   </body>
