@@ -786,7 +786,7 @@ form#survey-form textarea {
   height: 30vh;
   margin-left: auto;
   margin-right: auto;
-  color: black);
+  color: black;
 }
 
 form#survey-form input[type="submit"] {
